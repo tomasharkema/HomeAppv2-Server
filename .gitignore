@@ -25,6 +25,5 @@ build/Release
 node_modules
 
 # Users Environment Variables
+workspace.xml
 .lock-wscript
-
-.idea/workspace.xml
