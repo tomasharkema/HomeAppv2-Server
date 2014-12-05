@@ -1,0 +1,12 @@
+deploy:
+  provider: heroku
+  api_key:
+    secure: QYKZ9P6jk4KAmddR5FL1PUbagypWhh7nnJi0Trx9zhMNTQA7z80ZMmCkNSycGqWUaaF1aEw3ALbDSqnr/U00zIq5Mb7oaiBSCu/q/ExViLm+vkOz6Xm5vP5yPrVbB1IfEM8c4qOsvn2dn1ivFy82lLR+9v41+IJLvIwYKjk8qxU=
+  app: homeappv2
+  on:
+    repo: tomasharkema/HomeAppv2-Server
+
+language: node_js
+node_js:
+  - "0.11"
+  - "0.10"
