@@ -1,9 +1,10 @@
 {
-  "name": "Server",
-  "version": "0.0.0",
+  "name": "HomeAppv2-Server",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "gulp test"
   },
   "dependencies": {
     "express": "~4.9.0",
@@ -14,5 +15,9 @@
     "debug": "~2.0.0",
     "jade": "~1.6.0",
     "less-middleware": "1.0.x"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-jshint": "^1.9.0"
   }
 }
