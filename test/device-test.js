@@ -1,27 +1,30 @@
-var assert = require("assert");
+process.env.NODE_ENV = "TEST";
 
-var Devices = require('../lib/device').Devices;
-Devices.setTest();
+var assert = require("assert");
 var Device = require('../lib/device').Device;
 
-beforeEach(function(){
-    return Devices.devices.remove({}).then(function() {
-        return Devices.devices.save({name:"Test Device", type:"tester"});
+beforeEach(function(done){
+    return Device.remove({}, function() {
+        var d = new Device({name:"testDevice", type:"test"});
+        return d.save(function(){
+            done();
+        });
     });
 })
 
 describe('Devices', function(){
     describe('#addDevice', function(){
-        it('should have 1 device more.', function(done){
-            return Devices.addDevice({name:"Test Device2", type:"tester"}).then(function(res){
-                return Devices.getAll().then(function(res){
+        it('should have 2 devices after add 1 device', function(done){
+            var d = new Device({name:"testDevice", type:"test"});
+            return d.save(function(){
+                return Device.find({}, function(err, res){
                     if (res.length === 2) {
                         done();
                     } else {
-                        throw new Error("");
+                        throw new Error();
                     }
                 })
-            })
+            });
         })
     })
 })

@@ -14,9 +14,8 @@
     "jade": "~1.6.0",
     "less-middleware": "1.0.x",
     "mocha": "^2.0.1",
-    "mongojs": "^0.17.0",
     "morgan": "~1.3.0",
-    "promised-mongo": "^0.11.1",
+    "mongoose": "latest",
     "serve-favicon": "~2.1.3",
     "socket.io": "^1.2.1"
   },
