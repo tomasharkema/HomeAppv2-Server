@@ -14,4 +14,7 @@ node_js:
 
 notifications:
   email:
-    - tomas.harkema.1994@gmail.com
+    - tomas@harkema.in
+
+services:
+  - mongodb
