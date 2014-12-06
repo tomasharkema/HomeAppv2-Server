@@ -59,6 +59,7 @@ app.use(function(err, req, res, next) {
     });
 });
 
+var HomeApp = require("./lib/homeapp")(app, io);
 
 exports.app = app;
 exports.server = server;
