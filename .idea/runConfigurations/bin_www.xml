@@ -6,6 +6,8 @@
     <browser start="true" url="http://localhost:3000/" />
     <RunnerSettings RunnerId="Basic" />
     <ConfigurationWrapper RunnerId="Basic" />
-    <method />
+    <method>
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="Test" run_configuration_type="mocha-javascript-test-runner" />
+    </method>
   </configuration>
 </component>
