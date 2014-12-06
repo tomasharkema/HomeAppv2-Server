@@ -12,8 +12,6 @@ var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
-var device = require('./lib/device');
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -61,6 +59,7 @@ app.use(function(err, req, res, next) {
     });
 });
 
+var HomeApp = require("./lib/homeapp")(app, io);
 
 exports.app = app;
 exports.server = server;

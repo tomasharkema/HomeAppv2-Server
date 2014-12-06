@@ -1,7 +1,7 @@
 process.env.NODE_ENV = "TEST";
 
 var assert = require("assert");
-var Device = require('../lib/device').Device;
+var Device = require('../lib/device');
 
 beforeEach(function(done){
     return Device.remove({}, function() {
