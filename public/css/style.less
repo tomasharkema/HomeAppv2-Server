@@ -1,0 +1,22 @@
+*{
+  font-weight: 200!important;
+  -webkit-font-smoothing:antialiased;
+}
+
+.blue-header {
+  background-color:rgb(45, 170, 226);
+}
+
+.big-header {
+  &:extend(.blue-header);
+  color:white;
+
+  .temp{
+    text-align:center;
+    font-size:20pt;
+  }
+  .light{
+    text-align:center;
+    font-size:20pt;
+  }
+}
