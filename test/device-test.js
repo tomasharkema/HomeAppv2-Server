@@ -5,16 +5,18 @@ var Device = require('../lib/device');
 var Type = require('../lib/type').Type;
 
 beforeEach(function(done){
-    return Device.remove({}, function() {
-        var t = new Type({name:"durr"});
-        t.save(function(){
-            Type.findOne({name:"durr"}, function(err, t) {
-                var d = new Device();
-                d.name = "test";
-                d.state = false;
-                d.type.push(t._id);
-                return d.save(function () {
-                    done();
+    return Type.remove({}, function() {
+        return Device.remove({}, function () {
+            var t = new Type({name: "durr"});
+            t.save(function () {
+                Type.findOne({name: "durr"}, function (err, t) {
+                    var d = new Device();
+                    d.name = "test";
+                    d.state = false;
+                    d.type.push(t._id);
+                    return d.save(function () {
+                        done();
+                    });
                 });
             });
         });
