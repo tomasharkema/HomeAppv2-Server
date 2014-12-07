@@ -86,4 +86,20 @@ describe('Device', function(){
             });
         })
     })
+
+    describe('#addType', function(){
+        it('should have 1 type after add one type', function(done){
+            Device.findOne({name:"test"}).exec(function(err, d){
+                d.addType("temp", function(){
+                    Device.findOne({name:"test"}).exec(function(err, d) {
+                        if (d.type.length === 1) {
+                            done();
+                        } else {
+                            throw new Error();
+                        }
+                    });
+                });
+            });
+        });
+    });
 })
