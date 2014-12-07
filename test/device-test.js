@@ -2,6 +2,7 @@ process.env.NODE_ENV = "TEST";
 
 var assert = require("assert");
 var Device = require('../lib/device');
+var Type = require('../lib/type').Type;
 
 beforeEach(function(done){
     return Device.remove({}, function() {
