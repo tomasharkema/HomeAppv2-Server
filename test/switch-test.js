@@ -2,7 +2,7 @@ process.env.NODE_ENV = "TEST";
 
 var assert = require("assert");
 
-var Switch = require('../lib/Switch');
+var Switch = require('../lib/switch');
 
 describe('Switch', function(){
     describe('#turnOff', function(){
