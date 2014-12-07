@@ -4,7 +4,7 @@ var config = require('./config.json');
 var url = "";
 
 if (config.env === "development") {
-    url = "http://localhost:3000/"
+    url = "http://localhost:"+(process.env.PORT || 3000)+"/"
 } else if (config.env === "staging") {
     url = "http://homeappv2-staging.herokuapp.com/"
 } else {
