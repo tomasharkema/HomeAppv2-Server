@@ -7,6 +7,7 @@ beforeEach(function(done){
     return Device.remove({}, function() {
         var d = new Device();
         d.name = "test";
+        d.state = false;
         return d.save(function(){
             done();
         });
@@ -38,15 +39,49 @@ describe('Devices', function(){
             d.save();
         })
     })
+
+    describe('#findByName', function(){
+        it('should return the proper device', function(done){
+            Device.findByName("test", function(err, d){
+                if (d.name === "test") {
+                    done();
+                } else {
+                    throw new Error();
+                }
+            })
+        })
+    })
 })
 
 
 describe('Device', function(){
-    describe('#turnOff', function(){
+    describe('#turn', function(){
         it('should turn off when called', function(done){
-            Device.findOne({}, function(err, d){
-                d.turnOff(function(d){
-                    done();
+            Device.findOne({name:"test"}).exec(function(err, d){
+                if (err) throw new Error(err);
+                d.turnOff(function(){
+                    Device.findOne({name:"test"}).exec(function(err, d) {
+                        if (!d.state) {
+                            done();
+                        } else {
+                            throw new Error();
+                        }
+                    });
+                });
+            });
+        })
+
+        it('should turn on when called', function(done){
+            Device.findOne({name:"test"}).exec(function(err, d){
+                if (err) throw new Error(err);
+                d.turnOn(function(){
+                    Device.findOne({name:"test"}).exec(function(err, d) {
+                        if (d.state) {
+                            done();
+                        } else {
+                            throw new Error();
+                        }
+                    });
                 });
             });
         })

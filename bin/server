@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 var debug = require('debug')('Server');
-var instance = require('../app');
+var instance = require('../server');
 var app = instance.app;
 var server = instance.server;
 
