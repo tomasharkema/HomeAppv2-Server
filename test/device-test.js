@@ -6,11 +6,17 @@ var Type = require('../lib/type').Type;
 
 beforeEach(function(done){
     return Device.remove({}, function() {
-        var d = new Device();
-        d.name = "test";
-        d.state = false;
-        return d.save(function(){
-            done();
+        var t = new Type({name:"durr"});
+        t.save(function(){
+            Type.findOne({name:"durr"}, function(err, t) {
+                var d = new Device();
+                d.name = "test";
+                d.state = false;
+                d.type.push(t._id);
+                return d.save(function () {
+                    done();
+                });
+            });
         });
     });
 })
@@ -93,7 +99,7 @@ describe('Device', function(){
             Device.findOne({name:"test"}).exec(function(err, d){
                 d.addType("temp", function(){
                     Device.findOne({name:"test"}).exec(function(err, d) {
-                        if (d.type.length === 1) {
+                        if (d.type.length === 2) {
                             done();
                         } else {
                             throw new Error();

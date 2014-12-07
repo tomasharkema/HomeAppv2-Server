@@ -12,7 +12,7 @@ describe('Switch', function(){
             assert.equal(s.state, false);
         })
     })
-    describe('#turnOff', function(){
+    describe('#turnOn', function(){
         it('should be turned on afterwards', function(){
             var s = new Switch();
             s.turnOn();
