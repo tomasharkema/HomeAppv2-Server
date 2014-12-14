@@ -1,6 +1,7 @@
 process.env.NODE_ENV = "TEST";
 
 var assert = require("assert");
+var should = require('should');
 var Device = require('../lib/device');
 var Type = require('../lib/type').Type;
 
@@ -29,12 +30,9 @@ describe('Devices', function(){
             var d = new Device();
             d.name = "test";
             return d.save(function(){
-                return Device.find({}, function(err, res){
-                    if (res.length === 2) {
-                        done();
-                    } else {
-                        throw new Error();
-                    }
+                return Device.find({}).exec(function(err, res){
+                    res.should.have.length(2);
+                    done();
                 })
             });
         })
