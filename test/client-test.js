@@ -14,4 +14,4 @@ describe('Client', function(){
             }, 1000);
         })
     });
-})
+});

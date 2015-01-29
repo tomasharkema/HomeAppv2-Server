@@ -1,6 +1,8 @@
 var io = require('socket.io-client');
 var config = require('./config.json');
 
+console.log("Got some logs for ya", config);
+
 var url = "";
 
 if (config.env === "development") {

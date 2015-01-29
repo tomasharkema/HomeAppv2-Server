@@ -22,7 +22,7 @@ beforeEach(function(done){
             });
         });
     });
-})
+});
 
 describe('Devices', function(){
     describe('#addDevice', function(){
@@ -35,7 +35,7 @@ describe('Devices', function(){
                     done();
                 })
             });
-        })
+        });
 
         it('should call my handler when I add a device', function(done){
             var d = new Device();
@@ -45,7 +45,7 @@ describe('Devices', function(){
             });
             d.save();
         })
-    })
+    });
 
     describe('#findByName', function(){
         it('should return the proper device', function(done){
@@ -58,7 +58,7 @@ describe('Devices', function(){
             })
         })
     })
-})
+});
 
 
 describe('Device', function(){
@@ -76,7 +76,7 @@ describe('Device', function(){
                     });
                 });
             });
-        })
+        });
 
         it('should turn on when called', function(done){
             Device.findOne({name:"test"}).exec(function(err, d){
@@ -92,7 +92,7 @@ describe('Device', function(){
                 });
             });
         })
-    })
+    });
 
     describe('#addType', function(){
         it('should have 1 type after add one type', function(done){
@@ -109,4 +109,4 @@ describe('Device', function(){
             });
         });
     });
-})
+});
