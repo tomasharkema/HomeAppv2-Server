@@ -2,29 +2,27 @@ process.env.NODE_ENV = "TEST";
 process.env.PORT = 7000;
 var assert = require("assert");
 var request = require("request");
+var fs = require("fs");
+var Identifier = require("../lib/client/identify.js");
 
-describe('Server', function(){
-    describe('server - socket', function(){
-        it('should come up', function(done){
-            var server = require('../bin/server');
-            var client = require('../bin/client');
+beforeEach(function(){
+    var identifier = new Identifier();
+    identifier.remove();
+});
 
-            setTimeout(function(){
-                done();
-            }, 1000);
+describe('Client', function(){
+    describe('identifier', function(){
+        it("should get an new identifier", function(){
+            var identifier = new Identifier();
+
+            assert.equal(true, fs.existsSync("identifier"));
         });
-    });
-    describe('server - frontend', function(){
-        it('should come up', function(done){
-            var server = require('../bin/server');
 
-            request("http://localhost:" + process.env.PORT, function(err, res, body){
-                if (err) {
-                    return done(err);
-                }
+        it('should not have an empty identifier', function() {
+            var identifier = new Identifier();
 
-                done(assert.equal(res.statusCode, 200, "Should return 200"));
-            });
+            assert.notEqual(identifier, undefined);
+            assert.notEqual(identifier, "");
         });
     });
 });

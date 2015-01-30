@@ -26,7 +26,7 @@ beforeEach(function(done){
 
 describe('Devices', function(){
     describe('#addDevice', function(){
-        it('should have 2 devices after add 1 device', function(done){
+        it('should have 2 client after add 1 device', function(done){
             var d = new Device();
             d.name = "test";
             return d.save(function(){
