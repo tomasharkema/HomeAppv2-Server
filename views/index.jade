@@ -1,16 +1,11 @@
 extends layout
 
 block header
-  .big-header
-    .container
-      h1= title
-      .row
-        .col-sm-6
-          .temp.
-            20
-        .col-sm-6
-          .light.
-            20
+  .container
+    header.header
+      nav
+        ul.nav.nav-pills.pull-right
+      h3= "homeapp"
 
 
 block content
@@ -19,7 +14,7 @@ block content
     #devices
 
 block footer
-  footer
+  footer.footer
     .container
       hr
       p= footer

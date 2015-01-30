@@ -8,6 +8,8 @@ deploy:
   on:
     repo: tomasharkema/HomeAppv2-Server
 
+before_script: cp config.example.json config.json
+
 language: node_js
 node_js:
   - "0.10"

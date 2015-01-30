@@ -1,0 +1,14 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="server" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="/usr/local/bin/node" path-to-js-file="bin/server" working-dir="$PROJECT_DIR$">
+    <envs>
+      <env name="DEBUG" value="Server" />
+      <env name="NODE_ENV" value="DEVELOPMENT" />
+    </envs>
+    <browser name="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" start="true" url="http://localhost:3000/" />
+    <RunnerSettings RunnerId="Basic" />
+    <ConfigurationWrapper RunnerId="Basic" />
+    <method>
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="Test" run_configuration_type="mocha-javascript-test-runner" />
+    </method>
+  </configuration>
+</component>

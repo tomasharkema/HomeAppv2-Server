@@ -6,12 +6,10 @@ devices.on('connect', function () {
 });
 
 devices.on('all', function(docs){
-    console.log(docs);
-    docs = docs.map(function(doc){
-        return doc.name;
-    });
-    var html = docs.reduce(function(previousValue, currentValue, index, array){
-        return previousValue + currentValue + "<br>";
+    console.table(docs);
+    var html = "";
+    docs.forEach(function(doc){
+        html += doc.name + " "+doc.state+"<br>";
     });
     $("#devices").html(html);
 });
