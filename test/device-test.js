@@ -39,7 +39,7 @@ describe('Devices', function(){
             });
         });
 
-        it('should call my handler when I add a device', function(done){
+        it('should call my handler once when I add a device', function(done){
             var d = new Device();
             d.name = "test";
             d.save(function(){
@@ -51,8 +51,11 @@ describe('Devices', function(){
                     doc.name = "test1";
                     // FIXME: this should be resolved very quick
                     setTimeout(function(){
-                        doc.save()
-                    }, 1);
+                        doc.save();
+                    }, 100);
+                    setTimeout(function(){
+                        doc.save();
+                    }, 200);
                 });
             });
         })
