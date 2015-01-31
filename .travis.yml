@@ -2,9 +2,7 @@ deploy:
   provider: heroku
   api_key:
     secure: QYKZ9P6jk4KAmddR5FL1PUbagypWhh7nnJi0Trx9zhMNTQA7z80ZMmCkNSycGqWUaaF1aEw3ALbDSqnr/U00zIq5Mb7oaiBSCu/q/ExViLm+vkOz6Xm5vP5yPrVbB1IfEM8c4qOsvn2dn1ivFy82lLR+9v41+IJLvIwYKjk8qxU=
-  app:
-    master: homeappv2
-    develop: homeappv2-accept
+  app: homeappv2-staging
   on:
     repo: tomasharkema/HomeAppv2-Server
 
