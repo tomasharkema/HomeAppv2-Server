@@ -29,3 +29,5 @@ workspace.xml
 .lock-wscript
 
 config.json
+identifier
+.DS_Store
