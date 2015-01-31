@@ -16,15 +16,15 @@ if (config.env === "development") {
 }
 
 console.log("connect", url);
-console.log("identify", identifier.identifier);
 config.identifier = identifier.identifier;
 
 var socket = io.connect(url + "device");
 
 socket.on('connect', function(){
-    socket.emit("config", config);
-    socket.emit("identify", identifier.identifier);
-    socket.on("identification", function(res){
-
+    socket.emit("identification", config, function(isConnected){
+        if (!isConnected) {
+            console.log("\n\n------------");
+            console.log("Hi there! Your device has not yet been assigned to a user. Please, serve to " + url + " and enter the following device-code:", identifier.identifier);
+        }
     });
 });

@@ -13,7 +13,8 @@ beforeEach(function(done){
                 Type.findOne({name: "durr"}, function (err, t) {
                     var d = new Device();
                     d.name = "test";
-                    d.state = false;
+                    d.state = false
+                    d.identifier = "asfasdfasdf";
                     d.type.push(t._id);
                     return d.save(function () {
                         done();
@@ -29,6 +30,7 @@ describe('Devices', function(){
         it('should have 2 client after add 1 device', function(done){
             var d = new Device();
             d.name = "test";
+            d.identifier = "asdf";
             return d.save(function(){
                 return Device.find({}).exec(function(err, res){
                     res.should.have.length(2);
@@ -40,7 +42,7 @@ describe('Devices', function(){
         it('should call my handler when I add a device', function(done){
             var d = new Device();
             d.name = "test";
-            Device.once(function(){
+            d.on("save", function(){
                 done();
             });
             d.save();

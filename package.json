@@ -15,11 +15,13 @@
     "less-middleware": "1.0.x",
     "mocha": "^2.0.1",
     "mongoose": "3.8.x",
+    "mongoose-utilities": "latest",
     "morgan": "~1.3.0",
+    "redis": "^0.12.1",
     "request": "^2.51.0",
     "serve-favicon": "~2.1.3",
-    "socket.io": "^1.2.1",
-    "socket.io-client": "^1.2.1"
+    "socket.io": "1.3.x",
+    "socket.io-client": "1.3.x"
   },
   "devDependencies": {
     "assert": "^1.1.2",

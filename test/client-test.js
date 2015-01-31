@@ -15,7 +15,7 @@ describe('Client', function(){
         it("should get an new identifier", function(){
             var identifier = new Identifier();
 
-            assert.equal(true, fs.existsSync("identifier"));
+            assert.equal(true, fs.existsSync("test/identifier"), "test/identifier hasn't be created");
         });
 
         it('should not have an empty identifier', function() {
