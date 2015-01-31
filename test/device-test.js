@@ -42,15 +42,10 @@ describe('Devices', function(){
         it('should call my handler when I add a device', function(done){
             var d = new Device();
             d.name = "test";
-            d.on("init", function(){
+            d.onSave(function(){
                 done();
             });
-            d.on("save", function(){
-                done();
-            });
-            Device.publish(d, function(err, count){
-                console.log(err, count);
-            });
+            d.save();
         })
     });
 
