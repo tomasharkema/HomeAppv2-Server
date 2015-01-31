@@ -5,9 +5,10 @@ var request = require("request");
 var fs = require("fs");
 var Identifier = require("../lib/client/identify.js");
 
-beforeEach(function(){
+beforeEach(function(done){
     var identifier = new Identifier();
     identifier.remove();
+    done();
 });
 
 describe('Client', function(){

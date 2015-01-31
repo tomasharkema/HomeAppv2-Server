@@ -7,27 +7,27 @@
     "test": "mocha"
   },
   "dependencies": {
-    "body-parser": "~1.8.1",
-    "cookie-parser": "~1.3.3",
-    "debug": "~2.0.0",
-    "express": "~4.9.0",
-    "jade": "~1.6.0",
-    "less-middleware": "1.0.x",
-    "mocha": "^2.0.1",
-    "mongoose": "3.8.x",
+    "body-parser": "latest",
+    "cookie-parser": "latest",
+    "debug": "latest",
+    "express": "latest",
+    "jade": "latest",
+    "less-middleware": "latest",
+    "mocha": "latest",
+    "mongoose": "latest",
     "mongoose-utilities": "latest",
-    "morgan": "~1.3.0",
-    "redis": "^0.12.1",
-    "request": "^2.51.0",
-    "serve-favicon": "~2.1.3",
-    "socket.io": "1.3.x",
-    "socket.io-client": "1.3.x"
+    "morgan": "latest",
+    "redis": "latest",
+    "request": "latest",
+    "serve-favicon": "latest",
+    "socket.io": "latest",
+    "socket.io-client": "latest"
   },
   "devDependencies": {
-    "assert": "^1.1.2",
-    "gulp": "^3.8.10",
-    "gulp-jshint": "^1.9.0",
-    "should": "^4.3.1",
-    "vows": "^0.8.1"
+    "assert": "latest",
+    "gulp": "latest",
+    "gulp-jshint": "latest",
+    "should": "latest",
+    "vows": "latest"
   }
 }
