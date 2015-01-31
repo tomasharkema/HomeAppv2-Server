@@ -14,6 +14,7 @@ beforeEach(function(done){
                     var d = new Device();
                     d.name = "test";
                     d.state = false;
+                    d.identifier = "asfasdfasdf";
                     d.type.push(t._id);
                     return d.save(function () {
                         done();
@@ -26,9 +27,10 @@ beforeEach(function(done){
 
 describe('Devices', function(){
     describe('#addDevice', function(){
-        it('should have 2 devices after add 1 device', function(done){
+        it('should have 2 client after add 1 device', function(done){
             var d = new Device();
             d.name = "test";
+            d.identifier = "asdf";
             return d.save(function(){
                 return Device.find({}).exec(function(err, res){
                     res.should.have.length(2);
@@ -37,13 +39,25 @@ describe('Devices', function(){
             });
         });
 
-        it('should call my handler when I add a device', function(done){
+        it('should call my handler once when I add a device', function(done){
             var d = new Device();
             d.name = "test";
-            Device.once(function(){
-                done();
+            d.save(function(){
+                Device.findOne({name:"test"}).exec(function(err, doc){
+                    doc.onSaveOnce(function(){
+                        done();
+                        return true;
+                    });
+                    doc.name = "test1";
+                    // FIXME: this should be resolved very quick
+                    setTimeout(function(){
+                        doc.save();
+                    }, 100);
+                    setTimeout(function(){
+                        doc.save();
+                    }, 200);
+                });
             });
-            d.save();
         })
     });
 

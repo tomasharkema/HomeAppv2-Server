@@ -4,6 +4,6 @@ var instance = require('../server');
 var app = instance.app;
 var server = instance.server;
 
-server.listen(process.env.PORT || 3000, function() {
+server.listen(process.env.PORT || 4000, function() {
   debug('Express server listening on port ' + server.address().port);
 });
