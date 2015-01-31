@@ -42,10 +42,19 @@ describe('Devices', function(){
         it('should call my handler when I add a device', function(done){
             var d = new Device();
             d.name = "test";
-            d.onSave(function(){
-                done();
+            d.save(function(){
+                Device.findOne({name:"test"}).exec(function(err, doc){
+                    doc.onSaveOnce(function(){
+                        done();
+                        return true;
+                    });
+                    doc.name = "test1";
+                    // FIXME: this should be resolved very quick
+                    setTimeout(function(){
+                        doc.save()
+                    }, 1);
+                });
             });
-            d.save();
         })
     });
 

@@ -28,3 +28,11 @@ socket.on('connect', function(){
         }
     });
 });
+
+socket.on("found_user", function(user){
+    console.log("You're now owned by", user.name);
+});
+
+socket.on("config", function(config){
+    console.log("config", config);
+});
